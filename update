@@ -7,7 +7,7 @@ function update_proc {
     cd "$1"
     git add "assets/css/style.scss"
     git commit -m 'updated style.scss'
-    ../update-remote-git
+    git push
     cd ..
 }
 

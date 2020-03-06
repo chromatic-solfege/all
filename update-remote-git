@@ -1,8 +1,0 @@
-#!/bin/bash
-
-. `dirname "$0"`/git-userinfo
-
-ORIGIN=$(git remote get-url origin)
-ORIGIN_WITH_PASS=${ORIGIN/"//"/"//${USER_ID}:${USER_PW}@"}
-git push ${ORIGIN_WITH_PASS} 
-
