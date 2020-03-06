@@ -1,0 +1,23 @@
+#!/bin/bash
+
+function update_proc {
+    mkdir -p "$1/assets/css/" 
+    cp -vf "./lib/style.scss"  "$1/assets/css/style.scss"
+
+    cd "$1"
+    git add "assets/css/style.scss"
+    git commit -m 'updated style.scss'
+    ../update-remote-git
+    cd ..
+}
+
+DIRS=( "chromatic-solfege.github.io" \
+       "an-introduction-to-chromatic-solfege" \
+       "chromadoc" \
+       "chromadoc-examples" \
+       "chromatic-solfege-for-javascript" \
+       "chromatic-solfege-for-lilypond" )
+
+for i in ${DIRS[@]}; do
+    update_proc "$i"
+done 
